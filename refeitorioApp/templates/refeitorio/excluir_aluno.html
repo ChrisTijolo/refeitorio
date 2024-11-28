@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>（＞人＜；） EXCLUIR ALUNOS （＞人＜；）</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <h2>(＞﹏＜) EXCLUIR ALUNOS (＞﹏＜) </h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Editar" class="btn btn-warning">
+    </form>
+    <h1><strong>(👉ﾟヮﾟ)👉☆*: .｡. MOSTRAR ALUNOS .｡.:*☆ 👈(ﾟヮﾟ👈)</strong></h1>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Nome</th>
+                <th>ID Evento</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+            <tr>
+                <td><img src="{{aluno.foto_url}}" alt="Foto" class="img-thumbnail" width="100"></td>
+                <td>{{ aluno.nome_aluno }}</td>
+                <td>{{ aluno.matricula_aluno }}</td>
+                <td><a href="#" class="btn btn-warning">Editar</a></td>
+                <td><a href="#" class="btn btn-danger">Excluir</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

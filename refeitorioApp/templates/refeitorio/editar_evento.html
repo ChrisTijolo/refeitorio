@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>¯\_(ツ)_/¯  Editar Eventos ¯\_(ツ)_/¯ </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <h2>✍️(◔◡◔) EDITAR Eventos ✍️(◔◡◔)</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Editar" class="btn btn-warning">
+    </form>
+    <h1><strong>(👉ﾟヮﾟ)👉☆*: .｡. MOSTRAR EVENTOS .｡.:*☆ 👈(ﾟヮﾟ👈)</strong></h1>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>FOTO</th>
+                <th>Nome Evento</th>
+                <th>ID Evento</th>
+                <th>ID Aluno</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for evento in eventos %}
+            <tr>
+                <td><img src="{{evento.foto_url}}" alt="Foto" class="img-thumbnail" width="100"></td>
+                <td>{{ evento.nome_evento }}</td>
+                <td>{{ evento.id_evento }}</td>
+                <td><a href="#" class="btn btn-warning">Editar</a></td>
+                <td><a href="#" class="btn btn-danger">Excluir</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
